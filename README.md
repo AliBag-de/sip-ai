@@ -137,7 +137,4 @@ While this project is a functional proof-of-concept, here are several areas wher
 
 - **State Management**: The frontend uses several `useState` and `useRef` hooks to manage its state. For a more complex application, using a dedicated state management library (like Redux or Zustand) could help organize the state and make it more predictable.
 
----
-
-
-````
+---    
