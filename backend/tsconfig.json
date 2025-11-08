@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    /* Basic Options */
+    "lib": ["ES2023"],
+    "target": "ES2023",
+    "module": "ES2022",
+    "types": ["node","@types/node"],
+    "paths": {
+      "~encore/*": ["./encore.gen/*"]
+    },
+
+    /* Workspace Settings */
+    "composite": true,
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "sourceMap": true,
+
+    "declaration": true,
+
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}
