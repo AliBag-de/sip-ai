@@ -60,11 +60,13 @@ Follow these instructions to get the project up and running on your local machin
 ### Backend Setup
 
 1.  **Navigate to the backend directory:**
+
     ```bash
     cd backend
     ```
 
 2.  **Install dependencies:**
+
     ```bash
     npm install
     ```
@@ -73,13 +75,22 @@ Follow these instructions to get the project up and running on your local machin
     Encore uses a secrets system. You will need to set your OpenAI API key and the API URL.
 
     ```bash
-    encore secret set --type dev GPT_API_KEY
-    # Paste your OpenAI API key when prompted
+      -  encore secret set --type dev GPT_API_KEY
+        # Paste your OpenAI API key when prompted
 
-    encore secret set --type dev GPT_URL
-    # Paste the OpenAI Realtime API URL when prompted (e.g., wss://api.openai.com/v1/realtime/sessions)
+      - encore secret set --type dev GPT_URL
+        # Paste the OpenAI Realtime API URL when prompted (e.g., wss://api.openai.com/v1/realtime/sessions)
     ```
 
+    Also you can use .secrets.local.cue file for local env.
+
+    ```bash
+        {
+        GPT_URL:"wss://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview",
+        GPT_API_KEY:"sk-projXXXXXXXXXXXXXXXXX"
+        }
+
+    ```
 4.  **Run the backend service:**
     ```bash
     encore run
@@ -129,3 +140,4 @@ While this project is a functional proof-of-concept, here are several areas wher
 ---
 
 
+````
