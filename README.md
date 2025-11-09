@@ -127,6 +127,8 @@ Follow these instructions to get the project up and running on your local machin
 
 While this project is a functional proof-of-concept, here are several areas where it could be improved:
 
+- **Server-Side Audio Conversion**: Any audio format can be processed by `workers` on `encore.ts` and converted to the desired format using `ffmpeg`.
+
 - **Client-Side Audio Conversion**: The conversion from `Float32Array` to 16-bit PCM is currently handled by the backend. This adds computational load to the server. Moving this conversion to the frontend's `AudioWorklet` would be more efficient, as it would distribute the processing load across clients and reduce the amount of data sent over the WebSocket.
 
 - **Explicit End-of-Turn Signal**: Currently, the application relies on OpenAI's server-side Voice Activity Detection (VAD) to determine when a user has finished speaking. This can sometimes be unreliable. Implementing a manual "commit" signal (e.g., when the user stops the microphone) would give more explicit control, ensuring the AI responds at the right time. The backend already has a case for an `audio_f` message, but the frontend doesn't send it.
