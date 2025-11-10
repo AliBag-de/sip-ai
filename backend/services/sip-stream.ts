@@ -64,6 +64,7 @@ export const sipstream = api.streamInOut<IHandshake, InMessage, OutMessage>(
             },
             onError: (error: Error) => {
                 console.error(`APPLICATION ERROR: ${error.message}`);
+                stream.send({ type: "error", data: error.message, status: 500 });
             },
             onConnected: (socketId: string) => {
                 console.log("AI connected", socketId);

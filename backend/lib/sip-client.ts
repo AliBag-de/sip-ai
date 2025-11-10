@@ -100,8 +100,8 @@ export class OpenAiRealtimeClient {
 
     this.aiWS.on("message", (message, isBinary) => {
       const parsedData = JSON.parse(message as any);
-
-      if (!parsedData?.type.includes(".audio.delta")) console.log(parsedData.type)
+      
+      // if (!parsedData?.type.includes("error")) console.log(parsedData.type)
       this.callbacks.onServiceMessage(parsedData, isBinary);
       switch (parsedData?.type) {
         case OpenAIRealtimeEventType.ResponseTextDone:
@@ -117,6 +117,9 @@ export class OpenAiRealtimeClient {
           break;
         case OpenAIRealtimeEventType.ResponseAudioDelta:
           this.callbacks.onAudioFrame(parsedData?.delta);
+          break;
+        case OpenAIRealtimeEventType.Error:
+          this.callbacks.onError(parsedData?.error);
           break;
         default:
           break;
